@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Instagram Downloader</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <h1>Instagram Photo/Video Downloader</h1>
+  <form id="downloadForm">
+    <input type="text" id="instaUrl" placeholder="Paste Instagram link here" size="50" required>
+    <button type="submit">Download</button>
+  </form>
+  <div id="result"></div>
+
+  <footer style="margin-top: 30px; color: gray; font-size: 14px;">
+    <p>This tool is for educational and testing purposes only. Do not use it for commercial or unauthorized use of Instagram content.</p>
+  </footer>
+
+  <script>
+    const backendBase = 'https://instagram-downloader-mtpq.onrender.com'; // Replace with actual deployed backend URL
+
+    document.getElementById('downloadForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const url = document.getElementById('instaUrl').value;
+      const response = await fetch(backendBase + '/api/download', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({ url })
+      });
+      const data = await response.json();
+      const resultDiv = document.getElementById('result');
+      if (data.success) {
+        if (Array.isArray(data.media_url)) {
+          resultDiv.innerHTML = data.media_url.map((u, i) => {
+            const encoded = encodeURIComponent(u);
+            return `<p><a href="${backendBase}/download_proxy?url=${encoded}" download>Download media ${i + 1}</a></p>`;
+          }).join('');
+        } else {
+          const encoded = encodeURIComponent(data.media_url);
+          resultDiv.innerHTML = `<a href="${backendBase}/download_proxy?url=${encoded}" download>Download media</a>`;
+        }
+      } else {
+        resultDiv.innerText = "Download failed: " + data.error;
+      }
+    });
+  </script>
+</body>
+</html>
