@@ -5,8 +5,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
   <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/css/lightbox.min.css" rel="stylesheet">
-	<script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.3/dist/js/lightbox.min.js"></script>
 
   <title>Jack Hao - Personal Portfolio</title>
 
@@ -27,40 +31,36 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-	<style>
-    /* 1. 强制显示关闭按钮区域 */
+	
+<style>
+    /* 强制显示关闭按钮 X */
     .lb-data .lb-close {
       display: block !important;
       width: 35px !important;
       height: 35px !important;
       background: none !important; /* 去掉找不到的图片背景 */
       position: absolute;
-      top: -30px;      /* 调整位置到图片右上方 */
+      top: -30px;
       right: 0;
       opacity: 1 !important;
       text-align: center;
       line-height: 35px;
       text-decoration: none;
-      transition: transform 0.2s;
-    }
-
-    /* 2. 用文字画一个大大的 X */
-    .lb-data .lb-close::before {
-      content: "×";      /* 这是一个乘号，看起来像 X */
-      font-size: 40px;   /* 字体放大 */
-      color: #fff;       /* 纯白色 */
-      font-weight: bold;
-    }
-
-    /* 3. 鼠标放上去有放大效果 */
-    .lb-data .lb-close:hover {
-      transform: scale(1.2);
-      cursor: pointer;
+      z-index: 9999;
     }
     
-    /* 4. 确保图片下方的文字区域不会太挤 */
-    .lb-dataContainer {
-       padding-top: 10px;
+    /* 用文字画一个白色的 X */
+    .lb-data .lb-close::before {
+      content: "×"; 
+      font-size: 40px;
+      color: #fff;
+      font-weight: bold;
+    }
+    
+    /* 鼠标放上去变色 */
+    .lb-data .lb-close:hover {
+      color: #ccc;
+      cursor: pointer;
     }
 </style>
 	
