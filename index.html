@@ -26,6 +26,44 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+	<style>
+    /* 1. 强制显示关闭按钮区域 */
+    .lb-data .lb-close {
+      display: block !important;
+      width: 35px !important;
+      height: 35px !important;
+      background: none !important; /* 去掉找不到的图片背景 */
+      position: absolute;
+      top: -30px;      /* 调整位置到图片右上方 */
+      right: 0;
+      opacity: 1 !important;
+      text-align: center;
+      line-height: 35px;
+      text-decoration: none;
+      transition: transform 0.2s;
+    }
+
+    /* 2. 用文字画一个大大的 X */
+    .lb-data .lb-close::before {
+      content: "×";      /* 这是一个乘号，看起来像 X */
+      font-size: 40px;   /* 字体放大 */
+      color: #fff;       /* 纯白色 */
+      font-weight: bold;
+    }
+
+    /* 3. 鼠标放上去有放大效果 */
+    .lb-data .lb-close:hover {
+      transform: scale(1.2);
+      cursor: pointer;
+    }
+    
+    /* 4. 确保图片下方的文字区域不会太挤 */
+    .lb-dataContainer {
+       padding-top: 10px;
+    }
+</style>
+	
 </head>
 
 <body>
@@ -177,14 +215,12 @@
 
         <section class="about-text">
           <p>
-            I am currently pursuing a Master's degree in Internet of Things at La Trobe University, 
-            with a focus on data analysis, IoT solutions, and DevOps practices.
+          I am a recent Master’s graduate in Internet of Things from La Trobe University, specialising in data analysis, IoT solutions, and DevOps practices.
         </p>
              
          <p>
-            I have five years of professional experience in Software Testing
-            across various IT sectors—including system testing, warehouse management, 
-            and customer service—I have developed a strong foundation in both technical and business-focused roles.
+           With five years of experience in software testing across diverse IT environments, 
+		   I have developed a solid foundation in both technical problem-solving and business-oriented collaboration.
           </p>
 
          
@@ -256,10 +292,10 @@
               </div>
 
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">LTSA Representative</h4>
+                <h4 class="h4 service-item-title">Student Ambassador</h4>
 
                 <p class="service-item-text">
-                  Being elected as a representative in LTSA next year，I look forward to contributing positively to the work and making students feel like home.
+                  Representing the university by supporting student engagement, sharing campus information, and helping new students feel welcomed and connected.
                 </p>
               </div>
 
